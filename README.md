@@ -109,6 +109,41 @@ ON categories.categoryid = products.categoryid
 GROUP BY categories.categoryname;
 ```
 
+## 📸 World DB
+
+### COUNT – Cities in the USA
+
+Query counting the cities with country code USA. The result is 274.
+
+```sql
+SELECT count (*)
+FROM city
+WHERE countrycode = 'USA';
+```
+
+### GROUP BY – City Name Frequency
+
+Query counting how often each city name appears, grouped by name and sorted A to Z.
+
+```sql
+SELECT name , count(*) as frequency
+FROM city
+GROUP by name
+Order by name asc;
+```
+
+### JOIN – Cities in Europe
+
+Query joining city to country on the country code and filtering to the continent Europe.
+
+```sql
+SELECT city.name
+FROM city
+JOIN country
+ON city.countrycode = country.code
+WHERE continent = 'Europe';
+```
+
 ### 💻 Key Query Examples
 
 Total quantity sold per product:
@@ -150,37 +185,3 @@ JOIN orders AS o ON e.employeeid = o.employeeid
 GROUP BY e.firstname, e.lastname;
 ```
 
-## 📸 World DB
-
-### COUNT – Cities in the USA
-
-Query counting the cities with country code USA. The result is 274.
-
-```sql
-SELECT count (*)
-FROM city
-WHERE countrycode = 'USA';
-```
-
-### GROUP BY – City Name Frequency
-
-Query counting how often each city name appears, grouped by name and sorted A to Z.
-
-```sql
-SELECT name , count(*) as frequency
-FROM city
-GROUP by name
-Order by name asc;
-```
-
-### JOIN – Cities in Europe
-
-Query joining city to country on the country code and filtering to the continent Europe.
-
-```sql
-SELECT city.name
-FROM city
-JOIN country
-ON city.countrycode = country.code
-WHERE continent = 'Europe';
-```
