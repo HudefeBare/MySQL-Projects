@@ -34,20 +34,11 @@ Applied a variety of SQL clauses to retrieve and shape data:
 * COUNT with GROUP BY – Counting customers per country, orders per shipper and orders per employee
 * SUM with JOIN – Total quantity sold per product and per category, and total sales value (quantity × price)
 
-### ✔️ Project Tasks Completed
-
-* Retrieving and filtering customer, product and order data from the Northwind database
-* Sorting and limiting results to find top and bottom values
-* Joining tables to link products with suppliers and categories, and orders with customers and employees
-* Grouping data to count products per category and orders per employee
-* Running queries on a World database to analyse cities, countries and population
-* Running all queries in Supabase
 
 ## 📁 Included Outputs
 
 * Northwind queries using SELECT, WHERE, ORDER BY, GROUP BY and JOINs
 * World database queries on cities, countries and population
-* Screenshots of the queries from the Week 3 workbook
 
 ## 🧠 Key Learning Outcomes
 
