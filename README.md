@@ -156,16 +156,6 @@ ON od.productid = p.productid
 GROUP BY p.productname;
 ```
 
-Total sales value per product, highest first:
-
-```sql
-SELECT p.productname, SUM(od.quantity * p.price) AS totalsales
-FROM order_details AS od
-JOIN products AS p ON od.productid = p.productid
-GROUP BY p.productname
-ORDER BY totalsales DESC;
-```
-
 Total quantity sold per category:
 
 ```sql
