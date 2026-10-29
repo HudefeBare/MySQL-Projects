@@ -65,31 +65,58 @@ This project strengthened skills in:
 
 Query returning all products with a price greater than 50.
 
-![SELECT and WHERE](images/select-where-filter.png)
+```sql
+SELECT *
+FROM products
+WHERE price > 50;
+```
 
 ### WHERE, AND, IN & ORDER BY – Local Marketing
 
 Query returning customers in the USA from Portland or Kirkland, sorted by customer name.
 
-![WHERE AND IN ORDER BY](images/where-and-in-order-by.png)
+```sql
+SELECT *
+FROM customers
+WHERE country = ('USA') AND city IN ('Portland', 'Kirkland')
+ORDER BY customername asc;
+```
 
 ### INNER JOIN – Products and Categories
 
 Query joining the categories and products tables on categoryid to show the category of each product.
 
-![INNER JOIN](images/inner-join-category.png)
+```sql
+SELECT categories.categoryname , products.productname
+FROM categories
+JOIN products
+ON categories.categoryid = products.categoryid;
+```
 
 ### JOIN & WHERE – 1996 Orders
 
 Query joining orders to customers and filtering order dates to the year 1996.
 
-![JOIN with date filter](images/join-where-date-range.png)
+```sql
+SELECT orders.orderid, orders.orderdate, customers.customername
+FROM orders
+JOIN customers
+ON orders.customerid = customers.customerid
+WHERE orders.orderdate >= '1996-01-01'
+AND orders.orderdate < '1997-01-01';
+```
 
 ### JOIN & GROUP BY – Product Count by Category
 
 Query joining categories to products and using COUNT with GROUP BY to count the products in each category.
 
-![JOIN and GROUP BY](images/join-group-by-count.png)
+```sql
+SELECT categories.categoryname, COUNT(products.productid) AS product_count
+FROM categories
+JOIN products
+ON categories.categoryid = products.categoryid
+GROUP BY categories.categoryname;
+```
 
 ### 💻 Key Query Examples
 
@@ -138,16 +165,31 @@ GROUP BY e.firstname, e.lastname;
 
 Query counting the cities with country code USA. The result is 274.
 
-![COUNT](images/count-cities-usa.png)
+```sql
+SELECT count (*)
+FROM city
+WHERE countrycode = 'USA';
+```
 
 ### GROUP BY – City Name Frequency
 
 Query counting how often each city name appears, grouped by name and sorted A to Z.
 
-![GROUP BY](images/group-by-city-frequency.png)
+```sql
+SELECT name , count(*) as frequency
+FROM city
+GROUP by name
+Order by name asc;
+```
 
 ### JOIN – Cities in Europe
 
 Query joining city to country on the country code and filtering to the continent Europe.
 
-![JOIN on World database](images/join-cities-in-europe.png)
+```sql
+SELECT city.name
+FROM city
+JOIN country
+ON city.countrycode = country.code
+WHERE continent = 'Europe';
+```
