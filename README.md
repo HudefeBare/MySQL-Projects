@@ -84,18 +84,6 @@ JOIN products
 ON categories.categoryid = products.categoryid;
 ```
 
-### JOIN & GROUP BY – Product Count by Category
-
-Query joining categories to products and using COUNT with GROUP BY to count the products in each category.
-
-```sql
-SELECT categories.categoryname, COUNT(products.productid) AS product_count
-FROM categories
-JOIN products
-ON categories.categoryid = products.categoryid
-GROUP BY categories.categoryname;
-```
-
 ## 📸 World DB
 
 ### COUNT – Cities in the USA
