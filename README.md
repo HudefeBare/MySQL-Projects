@@ -84,19 +84,6 @@ JOIN products
 ON categories.categoryid = products.categoryid;
 ```
 
-### JOIN & WHERE – 1996 Orders
-
-Query joining orders to customers and filtering order dates to the year 1996.
-
-```sql
-SELECT orders.orderid, orders.orderdate, customers.customername
-FROM orders
-JOIN customers
-ON orders.customerid = customers.customerid
-WHERE orders.orderdate >= '1996-01-01'
-AND orders.orderdate < '1997-01-01';
-```
-
 ### JOIN & GROUP BY – Product Count by Category
 
 Query joining categories to products and using COUNT with GROUP BY to count the products in each category.
